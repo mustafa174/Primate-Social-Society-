@@ -6,14 +6,11 @@ import ButtonComponent from '../../components/Button';
 import twitter from '../../assets/twitter.png';
 import medium from '../../assets/medium.png';
 import Hidden from '@material-ui/core/Hidden';
-import withWidth from '@material-ui/core/withWidth';
 import Avatars from './TopbarAvatars';
 import darkTheme from '../../assets/darktheme.svg';
-// import { ReactComponent as YourSvg } from '../../assets/darktheme.svg';
-const TopBar = (props) => {
+const TopBar = () => {
 	const classes = useStyles();
-	const { width } = props;
-	console.log(width);
+
 	return (
 		<div className={classes.root}>
 			<AppBar className={classes.appBar} position="fixed">
@@ -45,8 +42,8 @@ const TopBar = (props) => {
 						<Avatars />
 					</Grid>
 					<Grid item lg={4}>
-						<div className="d-flex justify-content-center">
-							<a href="#" target="_blank" className={classes.ahrefLinks2}>
+						<div className="d-flex justify-content-end">
+							<a href="#" target="_blank" className={classes.rightAhrefLinksFirstBorder}>
 								List your Project
 							</a>
 							<a href="#" target="_blank" className={classes.ahrefLinks2}>
@@ -58,7 +55,9 @@ const TopBar = (props) => {
 							<a href="#" target="_blank" className={classes.ahrefLinks2}>
 								About
 							</a>
-							<button />
+							<button className={classes.darkThemeBtn}>
+								<img src={darkTheme} alt="darkthemeBtn" />
+							</button>
 						</div>
 					</Grid>
 				</Grid>

@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles((theme, state) => ({
+export const useStyles = makeStyles((theme, props) => ({
+	//button
 	button: (props) => ({
 		border: props.border,
 		padding: props.padding,
@@ -17,8 +18,33 @@ export const useStyles = makeStyles((theme, state) => ({
 		'&:hover': {
 			// backgroundColor: 'rgb(167 18 80)'
 			backgroundColor: props.bgcolorHover
+		}
+	}),
 
-			// backgroundColor: 'rgb(241 239 240)'
+	//input
+	inputRoot: (props) => ({
+		width: props.width
+	}),
+
+	input: (props) => ({
+		borderRadius: 8,
+		width: '80%',
+		position: 'relative',
+		border: '1px solid black',
+		fontSize: 16,
+		height: '24px',
+		margin: '0px auto',
+		borderColor: '#525252',
+		backgroundColor: props.bgColor,
+		padding: '2px 5px',
+		'&::placeholder': {
+			fontSize: '17px',
+			// color: '#BE185D',
+
+			color: props.pColor
+		},
+		'&:focus ': {
+			outline: 'none'
 		}
 	})
 }));

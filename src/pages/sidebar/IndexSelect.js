@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { ThemeContext } from '../../ThemeContext';
 
 import { useStyles } from './Styles';
 import './Override.css';
 const IndexSelect = () => {
+	const { 0: darkMode } = useContext(ThemeContext);
 	const menuItems = [
 		{
 			listItem: 'ten',
@@ -21,13 +23,20 @@ const IndexSelect = () => {
 		}
 	];
 	const classes = useStyles();
+	{
+		darkMode ? '#374151' : 'white';
+	}
 	return (
 		<div>
 			<FormControl className={classes.formControl}>
-				<Select className={classes.SelectInput}>
+				<Select className={classes.SelectInput} style={{ background: darkMode ? '#374151' : 'white' }}>
 					{menuItems &&
-						menuItems.map((items) => {
-							return <MenuItem value={items.value}>{items.listItem}</MenuItem>;
+						menuItems.map((items, idx) => {
+							return (
+								<MenuItem value={items.value} key={idx}>
+									<span style={{ color: darkMode ? '#D1D5DB' : 'black' }}>{items.listItem}</span>
+								</MenuItem>
+							);
 						})}
 				</Select>
 			</FormControl>

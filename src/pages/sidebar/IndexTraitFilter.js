@@ -4,11 +4,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { useStyles } from './Styles';
 import ButtonComponent from '../../components/Button';
 
-const IndexTraitFilter = () => {
+const IndexTraitFilter = (props) => {
 	const classes = useStyles();
 	return (
 		<div>
-			<p className={classes.itemFilterHeading}>Trait Filter</p>
+			<p className={classes.itemFilterHeading} style={{ color: props.color }}>
+				Trait Filter
+			</p>
 			<FormControlLabel
 				control={<Checkbox name="checkedA" color="primary" size="small" />}
 				label={<span className={classes.checkBoxLabel}>Drill Down Mode</span>}

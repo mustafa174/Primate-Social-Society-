@@ -54,7 +54,7 @@ export const useStyles = makeStyles((theme) => ({
 		textDecoration: 'none',
 		color: '#9CA3AF',
 		display: 'inline-block',
-		margin: '0px 7px',
+		margin: '0px 10px',
 		'& span': {
 			fontWeight: 600,
 			color: '#9CA3AF',
@@ -64,9 +64,29 @@ export const useStyles = makeStyles((theme) => ({
 			color: '#FFB2D1 !important'
 		}
 	},
-	allCollection: {
-		fontSize: '15px !important'
+	rightAhrefLinksFirstBorder: {
+		textDecoration: 'none',
+		color: '#9CA3AF',
+		display: 'inline-block',
+		margin: '0px 7px',
+
+		'& span': {
+			fontWeight: 600,
+			color: '#9CA3AF',
+			fontSize: '14px'
+		},
+		'&:hover': {
+			color: '#FFB2D1 !important'
+		},
+		'&::before': {
+			content: '""',
+			borderLeft: '1px solid #524f4f',
+			height: '80px',
+			width: '100px',
+			paddingRight: '10px'
+		}
 	},
+
 	AllCollectionSvg: {
 		width: '20px',
 		height: '20px',
@@ -75,5 +95,9 @@ export const useStyles = makeStyles((theme) => ({
 	spanNEw: {
 		color: '#ffc93f',
 		margin: '0px 10px'
+	},
+	darkThemeBtn: {
+		backgroundColor: 'transparent',
+		border: 'none'
 	}
 }));

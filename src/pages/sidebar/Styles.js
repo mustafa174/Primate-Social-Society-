@@ -1,22 +1,43 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles((theme, props) => ({
 	//parent sidebar
+
 	root: {
-		width: '27%',
+		width: '100%',
 		padding: '10px 10px',
 		textAlign: 'center',
-		marginTop: '10px '
+		marginTop: '10px ',
+		overflowY: 'scroll',
+		height: '100vh',
+		'&::-webkit-scrollbar': {
+			width: '0.9em'
+		},
+		'&::-webkit-scrollbar-track': {
+			boxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)',
+			webkitBoxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)'
+		},
+		'&::-webkit-scrollbar-thumb': {
+			backgroundColor: 'rgba(0,0,0,.1)',
+			outline: '1px solid slategrey'
+		},
+		[theme.breakpoints.down('1000')]: {
+			width: '60%',
+			margin: 'auto',
+			overflowY: 'hidden',
+			height: '100%'
+		}
 	},
-	headingProject: {
-		color: '#BE185D',
+	headingProject: (props) => ({
+		// color: '#BE185D',
+		color: props.darkTheme ? '#D1D5DB' : '#BE185D',
 		fontSize: '25px',
 		textAlign: 'center',
 		padding: '5px 0px',
 		fontWeight: '900'
-	},
+	}),
 	formControl: {
-		width: '80%'
+		width: '90%'
 	},
 	SelectInput: {
 		borderColor: '#525252',
@@ -28,12 +49,11 @@ export const useStyles = makeStyles((theme) => ({
 		}
 	},
 	//item filter
-	itemFilterHeading: {
+	itemFilterHeading: (props) => ({
 		fontSize: '23px',
-		color: '#4B5563',
 		fontWeight: 900,
 		margin: '0px'
-	},
+	}),
 	listingType: {
 		fontWeight: 900,
 		fontSize: '17px',
@@ -51,7 +71,7 @@ export const useStyles = makeStyles((theme) => ({
 	//trait filter
 	checkBoxLabel: {
 		fontSize: '17px',
-		color: '#9CA3AF',
+		// color: '#9CA3AF',
 		fontWeight: 900,
 		lineHeight: '10px'
 	},

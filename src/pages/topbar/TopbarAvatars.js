@@ -17,7 +17,7 @@ const Avatars = () => {
 					<img src={listLogo} alt="list-logo" className={classes.AllCollectionSvg} />
 					<span className={classes.allCollection}>All Collections</span>
 				</a>
-				<Hidden only={[ 'xs', 'sm', 'md' ]}>
+				<Hidden only={[ 'xs' ]}>
 					<a href="#" target="_blank" className={classes.ahrefLinks}>
 						<span className={classes.allCollection}>Upcoming</span>
 					</a>
@@ -31,7 +31,7 @@ const Avatars = () => {
 						<span className={classes.allCollection}>Gator World NFT</span>
 					</a>
 				</Hidden>
-				<Hidden only={[ 'xs', 'sm' ]}>
+				<Hidden only={[ 'xs', 'sm', 'md' ]}>
 					<Avatar alt="Remy Sharp" src={topbarGif2} style={{ width: '20px', height: '20px' }} />
 
 					<a href="#" target="_blank" className={classes.ahrefLinks2}>

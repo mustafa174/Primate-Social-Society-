@@ -56,7 +56,7 @@ export const useStyles = makeStyles((theme, props) => ({
 	},
 	paraRightSectionH: {
 		color: '#DB2777',
-		fontSize: '18px',
+		fontSize: '17px',
 		fontWeight: 900
 	},
 	//sorting
@@ -64,5 +64,16 @@ export const useStyles = makeStyles((theme, props) => ({
 		color: '#DB2777',
 		fontWeight: 900,
 		fontSize: '17px'
+	},
+	SelectInput: {
+		width: '100px !important',
+		borderRadius: '10px',
+		borderColor: '#525252',
+		'&:before': {
+			borderColor: 'transparent !important'
+		},
+		'&:after': {
+			borderColor: 'transparent !important'
+		}
 	}
 }));

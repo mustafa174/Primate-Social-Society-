@@ -17,7 +17,7 @@ const IndexWarning = () => {
 			<br />
 			<p className={classes.descriptionWarning}>Description</p>
 			<Grid container>
-				<Grid Item lg={8}>
+				<Grid Item lg={6}>
 					<p className={classes.descriptionParagraph}>
 						The Primate Social Society is a sophisticated collection of Ape avatars. Inspired by our
 						Degenerate brothers and sisters in the Defi Space over at ApeSwap. Our beautiful ApeQueen has
@@ -58,34 +58,36 @@ const IndexWarning = () => {
 					</div>
 					<div />
 				</Grid>
-				<Grid item lg={4}>
-					<Grid container spacing={3}>
-						<Grid item lg={3}>
-							<div>
-								<h3 className={classes.paraRightSectionH}>7 Day Volume</h3>
-								<p className={classes.descriptionParagraph}>0.07 ETH</p>
-							</div>
-						</Grid>
-						<Grid item lg={3}>
-							<div>
-								<h3 className={classes.paraRightSectionH}>Total Volume</h3>
-								<p className={classes.descriptionParagraph}>35.08 ETH</p>
-							</div>
-						</Grid>
-						<Grid item lg={3}>
-							<div>
-								<h3 className={classes.paraRightSectionH}>7 Day Avg Price</h3>
-								<p className={classes.descriptionParagraph}>321.73 ETH</p>
-							</div>
-						</Grid>
-						<Grid item lg={3}>
-							<div>
-								<h3 className={classes.paraRightSectionH}>owners</h3>
-								<p className={classes.descriptionParagraph}>0.07 ETH</p>
-							</div>
+				<div className="mt-3">
+					<Grid item lg={6}>
+						<Grid container spacing={4}>
+							<Grid item lg={3}>
+								<div>
+									<h3 className={classes.paraRightSectionH}>7 Day Volume</h3>
+									<p className={classes.descriptionParagraph}>0.07 ETH</p>
+								</div>
+							</Grid>
+							<Grid item lg={3}>
+								<div>
+									<h3 className={classes.paraRightSectionH}>Total Volume</h3>
+									<p className={classes.descriptionParagraph}>35.08 ETH</p>
+								</div>
+							</Grid>
+							<Grid item lg={3}>
+								<div>
+									<h3 className={classes.paraRightSectionH}>7 Day Avg Price</h3>
+									<p className={classes.descriptionParagraph}>321.73 ETH</p>
+								</div>
+							</Grid>
+							<Grid item lg={3}>
+								<div>
+									<h3 className={classes.paraRightSectionH}>owners</h3>
+									<p className={classes.descriptionParagraph}>0.07 ETH</p>
+								</div>
+							</Grid>
 						</Grid>
 					</Grid>
-				</Grid>
+				</div>
 			</Grid>
 		</div>
 	);

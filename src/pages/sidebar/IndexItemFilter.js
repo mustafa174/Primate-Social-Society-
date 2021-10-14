@@ -34,7 +34,8 @@ const IndexItemFilter = (props) => {
 						padding="1px 4px"
 						margin="0px 7px"
 						width="80px"
-						color="#FFFFFF"
+						color={darkMode ? '#FFFFFF' : '#BE185D'}
+						bgColor={darkMode ? '#6B7280' : 'transparent'}
 						border="1px solid #525252 "
 						borderRadius="7px"
 						bgcolorHover={darkMode ? 'none' : 'rgb(241 239 240)'}

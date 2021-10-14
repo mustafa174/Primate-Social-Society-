@@ -15,6 +15,7 @@ import { ThemeContext } from '../../ThemeContext';
 import Hidden from '@material-ui/core/Hidden';
 import { HideContentMd } from './HideContentMd';
 const Sidebar = (props) => {
+	const [ showFilters, setFilters ] = useState(false);
 	const { 0: darkMode, 1: setDarkMode } = useContext(ThemeContext);
 	const classes = useStyles(props);
 	const themeLight = createTheme({
@@ -24,7 +25,11 @@ const Sidebar = (props) => {
 			}
 		}
 	});
-
+	const filterToggle = () => {
+		setFilters(!showFilters);
+		console.log('from filter', showFilters);
+	};
+	console.log('from filter', showFilters);
 	return (
 		<ThemeProvider theme={themeLight}>
 			<CssBaseline>
@@ -39,7 +44,8 @@ const Sidebar = (props) => {
 							placeHolder="ID.."
 							width="46%"
 							bgColor={darkMode ? '#374151' : 'white'}
-							pColor="#EC407A"
+							// pColor="#EC407A"
+							valueColor={darkMode ? '#D1D5DB' : 'black'}
 						/>
 						<ButtonComponent
 							description="Look up"
@@ -53,7 +59,26 @@ const Sidebar = (props) => {
 							bgcolorHover="rgb(167 18 80)"
 						/>
 					</div>
-					<HideContentMd />
+					<Hidden only={[ 'xs', 'sm', 'md' ]}>
+						<HideContentMd />
+					</Hidden>
+
+					<Hidden only={[ 'lg', 'xl' ]}>
+						<button onClick={filterToggle} style={{ background: 'none', border: 'none' }}>
+							<ButtonComponent
+								description="Show Filters"
+								padding="0px 4px"
+								width="120px"
+								borderRadius="8px"
+								color="white"
+								bgColor="#BE185D"
+								border="none"
+								height="27px"
+								bgcolorHover="rgb(167 18 80)"
+							/>
+						</button>
+					</Hidden>
+					{showFilters ? <HideContentMd /> : null}
 				</div>
 			</CssBaseline>
 		</ThemeProvider>

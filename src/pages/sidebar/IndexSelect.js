@@ -28,13 +28,13 @@ const IndexSelect = () => {
 	}
 	return (
 		<div>
-			<FormControl className={classes.formControl}>
+			<FormControl className={classes.formControl} style={{ background: 'red' }}>
 				<Select className={classes.SelectInput} style={{ background: darkMode ? '#374151' : 'white' }}>
 					{menuItems &&
 						menuItems.map((items, idx) => {
 							return (
 								<MenuItem value={items.value} key={idx}>
-									<span style={{ color: darkMode ? '#D1D5DB' : 'black' }}>{items.listItem}</span>
+									<span style={{ color: darkMode ? '#9CA3AF' : 'black' }}>{items.listItem}</span>
 								</MenuItem>
 							);
 						})}

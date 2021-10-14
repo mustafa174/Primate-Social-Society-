@@ -24,7 +24,7 @@ export const HideContentMd = () => {
 				inputPlaceHolderSecond="Max Rank#"
 			/>
 			<IndexTraitFilter color={darkMode ? '#D1D5DB' : '#4B5563'} />
-			<Traits color={darkMode ? 'red' : '#DB2777'} />
+			<Traits color={darkMode ? '#D1D5DB' : '#DB2777'} />
 		</div>
 	);
 };

@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useStyles } from './Styles';
 import mainbanner from '../../assets/main-banner.jpg';
 import { Grid } from '@material-ui/core';
 import midicon1 from '../../assets/mdicon.jpg';
 import Avatar from '@material-ui/core/Avatar';
 import ButtonComponent from '../../components/Button';
-
 import IndexWarning from './IndexWarning';
 import Ranking from './IndexRanking';
 import Filter from './IndexFilter';
+import { ThemeContext } from '../../ThemeContext';
+import Collection from '../project-collection/Index';
+import NewsCollections from '../newest-collection/Index';
+import TopCollection from '../topcollection/Index';
 const ProjectDescription = () => {
-	const classes = useStyles();
+	const { 0: darkMode, 1: setDarkMode } = useContext(ThemeContext);
 
+	const classes = useStyles();
+	const adImg = 'https://current.images.rarity.tools/samuraidoge_horiz_d';
 	return (
 		<div className={classes.root}>
 			<div className={classes.imgParentDiv}>
-				<img src={mainbanner} alt="bannerAlt" className={classes.bannerImg} />
+				<img src={mainbanner} alt="bannerAlt" className="img-fluid h-75 w-100" />
+				<div className="text-center mt-3 mb-3 ">
+					<img src={adImg} alt="adbanner" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+					<p className="text-muted">Please visit our sponsors!</p>
+				</div>
 				<div style={{ width: '90%', margin: ' 20px auto' }}>
 					<Grid container>
 						<Grid item lg={8}>
@@ -80,6 +89,9 @@ const ProjectDescription = () => {
 					<IndexWarning />
 					<Ranking />
 					<Filter />
+					<Collection />
+					<NewsCollections />
+					<TopCollection />
 				</div>
 			</div>
 		</div>

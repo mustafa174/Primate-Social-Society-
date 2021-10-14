@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme, props) => ({
 		width: '100%',
 		padding: '10px 10px',
 		textAlign: 'center',
-		marginTop: '10px ',
+		margin: '10px 0px 10px 0px',
 		overflowY: 'scroll',
 		height: '100vh',
 		'&::-webkit-scrollbar': {
@@ -21,11 +21,10 @@ export const useStyles = makeStyles((theme, props) => ({
 			backgroundColor: 'rgba(0,0,0,.1)',
 			outline: '1px solid slategrey'
 		},
-		[theme.breakpoints.down('1024')]: {
-			width: '60%',
+		[theme.breakpoints.down('md')]: {
 			margin: 'auto',
 			overflowY: 'hidden',
-			height: '100%'
+			height: 'auto'
 		}
 	},
 	headingProject: (props) => ({
@@ -40,6 +39,9 @@ export const useStyles = makeStyles((theme, props) => ({
 		width: '100%'
 	},
 	SelectInput: {
+		'&$selected': {
+			backgroundColor: 'red !important'
+		},
 		borderColor: '#525252',
 		'&:before': {
 			borderColor: 'transparent !important'
@@ -48,6 +50,7 @@ export const useStyles = makeStyles((theme, props) => ({
 			borderColor: 'transparent !important'
 		}
 	},
+
 	//item filter
 	itemFilterHeading: (props) => ({
 		fontSize: '22px',

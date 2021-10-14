@@ -32,6 +32,7 @@ export const useStyles = makeStyles((theme, props) => ({
 		position: 'relative',
 		border: '1px solid black',
 		fontSize: 16,
+		color: props.valueColor,
 		height: '24px',
 		margin: '0px auto',
 		borderColor: '#525252',
@@ -40,7 +41,7 @@ export const useStyles = makeStyles((theme, props) => ({
 		'&::placeholder': {
 			fontSize: '14px',
 			// color: '#BE185D',
-
+			textAlign: 'center',
 			color: props.pColor
 		},
 		'&:focus ': {

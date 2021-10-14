@@ -10,14 +10,3 @@ const Button = (props) => {
 	);
 };
 export default Button;
-{
-	/* <ContactButton
-							description="CONTACT US"
-							padding="13px 13px"
-							fontSize="16px"
-							width="160px"
-							color="#c6c9d8"
-							marginBotm="-10px"
-							borderRadius="6px"
-						/> */
-}

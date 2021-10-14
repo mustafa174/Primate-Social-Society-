@@ -1,12 +1,87 @@
 import React from 'react';
 import { useStyles } from './Styles';
 import mainbanner from '../../assets/main-banner.jpg';
+import { Grid } from '@material-ui/core';
+import midicon1 from '../../assets/mdicon.jpg';
+import Avatar from '@material-ui/core/Avatar';
+import ButtonComponent from '../../components/Button';
+
+import IndexWarning from './IndexWarning';
+import Ranking from './IndexRanking';
+import Filter from './IndexFilter';
 const ProjectDescription = () => {
 	const classes = useStyles();
 
 	return (
 		<div className={classes.root}>
-			<img src={mainbanner} alt="bannerAlt" className={classes.bannerImg} />
+			<div className={classes.imgParentDiv}>
+				<img src={mainbanner} alt="bannerAlt" className={classes.bannerImg} />
+				<div style={{ width: '90%', margin: ' 20px auto' }}>
+					<Grid container>
+						<Grid item lg={8}>
+							<div className="d-flex">
+								<Avatar
+									alt="Remy Sharp"
+									src={midicon1}
+									style={{ width: '35px', height: '35px', margin: '10px 10px 0px 0px' }}
+								/>
+								<h1 className={classes.adHeading}>Primate Social Society Official Ranked by Rarity</h1>
+							</div>
+						</Grid>
+						<Grid item lg={4}>
+							<div className="d-flex">
+								<ButtonComponent
+									description={
+										<span>
+											View <br />Collection
+										</span>
+									}
+									padding="0px 2px"
+									width="100px"
+									borderRadius="8px"
+									color="#FFFFFF"
+									bgColor="#BE185D"
+									border="none"
+									height="45px"
+									bgcolorHover="rgb(167 18 80)"
+								/>
+								<ButtonComponent
+									description={
+										<span>
+											Explore <br />Traits
+										</span>
+									}
+									padding="0px 2px"
+									width="100px"
+									borderRadius="8px"
+									color="#DB2777"
+									bgColor="transparent"
+									border="none"
+									margin="0px 5px"
+									border=" 1px solid #DB2777"
+									height="45px"
+									bgcolorHover="rgb(241 239 240)"
+								/>
+								<ButtonComponent
+									description="My Wallet"
+									padding="0px 2px"
+									width="100px"
+									borderRadius="8px"
+									color="#DB2777"
+									bgColor="transparent"
+									border=" 1px solid #DB2777"
+									height="45px"
+									bgcolorHover="rgb(241 239 240)"
+								/>
+							</div>
+						</Grid>
+					</Grid>
+					<hr />
+					<IndexWarning />
+					<Ranking />
+					<Filter />
+				</div>
+			</div>
 		</div>
 	);
 };

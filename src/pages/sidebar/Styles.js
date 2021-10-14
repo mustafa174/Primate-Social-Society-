@@ -21,7 +21,7 @@ export const useStyles = makeStyles((theme, props) => ({
 			backgroundColor: 'rgba(0,0,0,.1)',
 			outline: '1px solid slategrey'
 		},
-		[theme.breakpoints.down('1000')]: {
+		[theme.breakpoints.down('1024')]: {
 			width: '60%',
 			margin: 'auto',
 			overflowY: 'hidden',
@@ -31,13 +31,13 @@ export const useStyles = makeStyles((theme, props) => ({
 	headingProject: (props) => ({
 		// color: '#BE185D',
 		color: props.darkTheme ? '#D1D5DB' : '#BE185D',
-		fontSize: '25px',
+		fontSize: '21px',
 		textAlign: 'center',
 		padding: '5px 0px',
 		fontWeight: '900'
 	}),
 	formControl: {
-		width: '90%'
+		width: '100%'
 	},
 	SelectInput: {
 		borderColor: '#525252',
@@ -50,27 +50,27 @@ export const useStyles = makeStyles((theme, props) => ({
 	},
 	//item filter
 	itemFilterHeading: (props) => ({
-		fontSize: '23px',
+		fontSize: '22px',
 		fontWeight: 900,
 		margin: '0px'
 	}),
 	listingType: {
 		fontWeight: 900,
-		fontSize: '17px',
+		fontSize: '16px',
 		color: '#DB2777'
 	},
 	price: {
 		fontWeight: 900,
-		fontSize: '17px',
+		fontSize: '16px',
 		color: '#DB2777'
 	},
 	priceSubHeading: {
 		color: '#DB2777',
-		fontSize: '17px'
+		fontSize: '16px'
 	},
 	//trait filter
 	checkBoxLabel: {
-		fontSize: '17px',
+		fontSize: '16px',
 		// color: '#9CA3AF',
 		fontWeight: 900,
 		lineHeight: '10px'

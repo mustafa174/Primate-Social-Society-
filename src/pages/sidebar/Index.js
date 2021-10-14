@@ -12,13 +12,11 @@ import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Typography } from '@material-ui/core';
 import { ThemeContext } from '../../ThemeContext';
-
+import Hidden from '@material-ui/core/Hidden';
+import { HideContentMd } from './HideContentMd';
 const Sidebar = (props) => {
 	const { 0: darkMode, 1: setDarkMode } = useContext(ThemeContext);
 	const classes = useStyles(props);
-	const darkchange = () => {
-		setDarkMode(!darkMode);
-	};
 	const themeLight = createTheme({
 		palette: {
 			background: {
@@ -26,14 +24,13 @@ const Sidebar = (props) => {
 			}
 		}
 	});
-	console.log('props from side', props.darkTheme);
+
 	return (
 		<ThemeProvider theme={themeLight}>
 			<CssBaseline>
-				<div className={classes.root} style={{}}>
+				<div className={classes.root}>
 					<Typography>
 						<h1 className={classes.headingProject}>Project</h1>
-						<button onClick={darkchange}>dark mode</button>
 					</Typography>
 
 					<SelectDropDown />
@@ -56,22 +53,7 @@ const Sidebar = (props) => {
 							bgcolorHover="rgb(167 18 80)"
 						/>
 					</div>
-
-					<ItemFilter color={darkMode ? '#D1D5DB' : '#4B5563'} />
-					<Price
-						description="Price"
-						subHeading={true}
-						inputPlaceHolderFirst="Min ETH"
-						inputPlaceHolderSecond="Max ETH"
-					/>
-					<Price
-						description="Rarity"
-						subHeading={false}
-						inputPlaceHolderFirst="Min Rank#"
-						inputPlaceHolderSecond="Max Rank#"
-					/>
-					<IndexTraitFilter color={darkMode ? '#D1D5DB' : '#4B5563'} />
-					<Traits color={darkMode ? 'red' : '#DB2777'} />
+					<HideContentMd />
 				</div>
 			</CssBaseline>
 		</ThemeProvider>

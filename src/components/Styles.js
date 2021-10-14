@@ -28,7 +28,7 @@ export const useStyles = makeStyles((theme, props) => ({
 
 	input: (props) => ({
 		borderRadius: 8,
-		width: '80%',
+		width: '90%',
 		position: 'relative',
 		border: '1px solid black',
 		fontSize: 16,
@@ -38,7 +38,7 @@ export const useStyles = makeStyles((theme, props) => ({
 		backgroundColor: props.bgColor,
 		padding: '2px 5px',
 		'&::placeholder': {
-			fontSize: '17px',
+			fontSize: '14px',
 			// color: '#BE185D',
 
 			color: props.pColor

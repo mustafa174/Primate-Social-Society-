@@ -17,9 +17,12 @@ const Avatars = () => {
 					<img src={listLogo} alt="list-logo" className={classes.AllCollectionSvg} />
 					<span className={classes.allCollection}>All Collections</span>
 				</a>
-				<a href="#" target="_blank" className={classes.ahrefLinks}>
-					<span className={classes.allCollection}>Upcoming</span>
-				</a>
+				<Hidden only={[ 'xs', 'sm', 'md' ]}>
+					<a href="#" target="_blank" className={classes.ahrefLinks}>
+						<span className={classes.allCollection}>Upcoming</span>
+					</a>
+				</Hidden>
+
 				<Hidden only={[ 'xs', 'sm' ]}>
 					<span className={classes.spanNEw}>New!</span>
 					<Avatar alt="Remy Sharp" src={topbarGif1} style={{ width: '20px', height: '20px' }} />

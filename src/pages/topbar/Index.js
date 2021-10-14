@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import { useStyles } from './Styles';
 import Grid from '@material-ui/core/Grid';
@@ -8,9 +8,14 @@ import medium from '../../assets/medium.png';
 import Hidden from '@material-ui/core/Hidden';
 import Avatars from './TopbarAvatars';
 import darkTheme from '../../assets/darktheme.svg';
-const TopBar = () => {
-	const classes = useStyles();
+import { ThemeContext } from '../../ThemeContext';
 
+const TopBar = () => {
+	const { 0: darkMode, 1: setDarkMode } = useContext(ThemeContext);
+	const classes = useStyles();
+	const darkchange = () => {
+		setDarkMode(!darkMode);
+	};
 	return (
 		<div className={classes.root}>
 			<AppBar className={classes.appBar} position="fixed">
@@ -43,19 +48,27 @@ const TopBar = () => {
 					</Grid>
 					<Grid item lg={4}>
 						<div className="d-flex justify-content-end">
-							<a href="#" target="_blank" className={classes.rightAhrefLinksFirstBorder}>
-								List your Project
-							</a>
-							<a href="#" target="_blank" className={classes.ahrefLinks2}>
-								Advertise
-							</a>
-							<a href="#" target="_blank" className={classes.ahrefLinks2}>
-								Contact Us
-							</a>
-							<a href="#" target="_blank" className={classes.ahrefLinks2}>
-								About
-							</a>
-							<button className={classes.darkThemeBtn}>
+							<Hidden only={[ 'xs', 'sm', 'md' ]}>
+								<a href="#" target="_blank" className={classes.rightAhrefLinksFirstBorder}>
+									List your Project
+								</a>
+							</Hidden>
+							<Hidden only={[ 'xs', 'sm' ]}>
+								<a href="#" target="_blank" className={classes.ahrefLinks2}>
+									Advertise
+								</a>
+							</Hidden>
+							<Hidden only={[ 'xs', 'sm' ]}>
+								<a href="#" target="_blank" className={classes.ahrefLinks2}>
+									Contact Us
+								</a>
+							</Hidden>
+							<Hidden only={[ 'xs' ]}>
+								<a href="#" target="_blank" className={classes.ahrefLinks2}>
+									About
+								</a>
+							</Hidden>
+							<button onClick={darkchange} className={classes.darkThemeBtn}>
 								<img src={darkTheme} alt="darkthemeBtn" />
 							</button>
 						</div>

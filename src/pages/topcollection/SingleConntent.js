@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { useStyles } from './Styles';
-import { content1, content2, content3, content4 } from './Content';
+import { content1 } from './Content';
 import InsideContent from './InsideContent';
 import { ThemeContext } from '../../ThemeContext';
 const SingleContent = (props) => {
-	const { 0: darkMode, 1: setDarkMode } = useContext(ThemeContext);
+	const { 0: darkMode } = useContext(ThemeContext);
 
 	const classes = useStyles();
 	return (
@@ -13,7 +13,7 @@ const SingleContent = (props) => {
 			{content1 &&
 				content1.map((items, idx) => {
 					return (
-						<div>
+						<div key={idx}>
 							<InsideContent
 								id={idx}
 								icon={items.icon}
@@ -24,8 +24,6 @@ const SingleContent = (props) => {
 						</div>
 					);
 				})}
-			{/* <InsideContent /> */}
-			{/* <InsideContent /> */}
 		</div>
 	);
 };

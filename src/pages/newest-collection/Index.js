@@ -6,7 +6,7 @@ import Card from './Card';
 import { ThemeContext } from '../../ThemeContext';
 
 const NewsCollections = () => {
-	const { 0: darkMode, 1: setDarkMode } = useContext(ThemeContext);
+	const { 0: darkMode } = useContext(ThemeContext);
 	const classes = useStyles();
 
 	return (
@@ -37,4 +37,4 @@ const NewsCollections = () => {
 		</div>
 	);
 };
-export default NewsCollections;
+export default React.memo(NewsCollections);

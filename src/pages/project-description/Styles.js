@@ -75,5 +75,9 @@ export const useStyles = makeStyles((theme, props) => ({
 		'&:after': {
 			borderColor: 'transparent !important'
 		}
+	},
+	settingButton: {
+		background: 'none',
+		width: '100px'
 	}
 }));

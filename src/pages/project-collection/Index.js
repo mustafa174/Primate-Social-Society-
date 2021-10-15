@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
-import { useStyles } from './Styles';
+
 import contentMid from './ProjectContent';
 import MediaCard from './Card';
 import { Grid } from '@material-ui/core';
 import { ThemeContext } from '../../ThemeContext';
 
 const Collection = () => {
-	const { 0: darkMode, 1: setDarkMode } = useContext(ThemeContext);
-	const classes = useStyles();
+	const { 0: darkMode } = useContext(ThemeContext);
 
 	return (
 		<div>
@@ -32,4 +31,4 @@ const Collection = () => {
 		</div>
 	);
 };
-export default Collection;
+export default React.memo(Collection);

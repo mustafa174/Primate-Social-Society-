@@ -79,5 +79,10 @@ export const useStyles = makeStyles((theme, props) => ({
 	settingButton: {
 		background: 'none',
 		width: '100px'
+	},
+	toggleButtons: {
+		'&:hover': {
+			backgroundColor: 'transparent !important'
+		}
 	}
 }));

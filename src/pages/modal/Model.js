@@ -1,94 +1,84 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemText from '@material-ui/core/ListItemText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
-import PersonIcon from '@material-ui/icons/Person';
-import AddIcon from '@material-ui/icons/Add';
-import Typography from '@material-ui/core/Typography';
-import { blue } from '@material-ui/core/colors';
+import Modal from '@material-ui/core/Modal';
+import Card from './Card';
+import { useSelector, useDispatch } from 'react-redux';
 
-const emails = [ 'username@gmail.com', 'user02@gmail.com' ];
-const useStyles = makeStyles({
-	avatar: {
-		backgroundColor: blue[100],
-		color: blue[600]
-	}
-});
-
-function SimpleDialog(props) {
-	const classes = useStyles();
-	const { onClose, selectedValue, open } = props;
-
-	const handleClose = () => {
-		onClose(selectedValue);
-	};
-
-	const handleListItemClick = (value) => {
-		onClose(value);
-	};
-
-	return (
-		<Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-			<DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
-			<List>
-				{emails.map((email) => (
-					<ListItem button onClick={() => handleListItemClick(email)} key={email}>
-						<ListItemAvatar>
-							<Avatar className={classes.avatar}>
-								<PersonIcon />
-							</Avatar>
-						</ListItemAvatar>
-						<ListItemText primary={email} />
-					</ListItem>
-				))}
-
-				<ListItem autoFocus button onClick={() => handleListItemClick('addAccount')}>
-					<ListItemAvatar>
-						<Avatar>
-							<AddIcon />
-						</Avatar>
-					</ListItemAvatar>
-					<ListItemText primary="Add account" />
-				</ListItem>
-			</List>
-		</Dialog>
-	);
+function rand() {
+	return Math.round(Math.random() * 20) - 10;
 }
 
-SimpleDialog.propTypes = {
-	onClose: PropTypes.func.isRequired,
-	open: PropTypes.bool.isRequired,
-	selectedValue: PropTypes.string.isRequired
-};
+function getModalStyle() {
+	const top = 50;
+	const left = 50;
 
-export default function SimpleDialogDemo() {
-	const [ open, setOpen ] = React.useState(false);
-	const [ selectedValue, setSelectedValue ] = React.useState(emails[1]);
+	return {
+		top: `${top}%`,
+		left: `${left}%`,
+		transform: `translate(-${top}%, -${left}%)`
+	};
+}
 
-	const handleClickOpen = () => {
+const useStyles = makeStyles((theme) => ({
+	paper: {
+		position: 'absolute',
+		overflowY: 'auto !important',
+		height: '90vh',
+		width: '50%',
+		[theme.breakpoints.down('800')]: {
+			width: 'auto'
+		},
+		backgroundColor: theme.palette.background.paper,
+		border: '3px solid #DB2777',
+		outline: 'none',
+		borderRadius: '7px',
+		padding: theme.spacing(3, 4, 3),
+		'&::-webkit-scrollbar': {
+			width: '0.4em'
+		},
+		'&::-webkit-scrollbar-track': {
+			boxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)',
+			webkitBoxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)'
+		},
+		'&::-webkit-scrollbar-thumb': {
+			backgroundColor: 'rgba(0,0,0,.1)',
+			outline: '1px solid slategrey'
+		}
+	}
+}));
+
+export default function SimpleModal() {
+	const dispatch = useDispatch();
+	const state = useSelector((state) => state.auth);
+	const modalstate = state.modelOpen;
+	const classes = useStyles();
+	const [ modalStyle ] = React.useState(getModalStyle);
+	const [ open, setOpen ] = React.useState(modalstate);
+
+	const handleOpen = () => {
 		setOpen(true);
 	};
 
-	const handleClose = (value) => {
+	const handleClose = () => {
 		setOpen(false);
-		setSelectedValue(value);
+		dispatch({ type: 'MODAL OPEN', payload: false });
 	};
 
+	const body = (
+		<div style={modalStyle} className={classes.paper}>
+			<Card />
+		</div>
+	);
 	return (
 		<div>
-			<Typography variant="subtitle1">Selected: {selectedValue}</Typography>
-			<br />
-			<Button variant="outlined" color="primary" onClick={handleClickOpen}>
-				Open simple dialog
-			</Button>
-			<SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
+			<Modal
+				open={modalstate}
+				onClose={handleClose}
+				aria-labelledby="simple-modal-title"
+				aria-describedby="simple-modal-description"
+			>
+				{body}
+			</Modal>
 		</div>
 	);
 }

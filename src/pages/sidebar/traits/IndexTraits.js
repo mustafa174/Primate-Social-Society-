@@ -9,9 +9,7 @@ import NestedItems from './nesteditems/NestedTraits';
 const Traits = (props) => {
 	const [ nestListShow, setNestListHow ] = useState(false);
 	const classes = useStyles();
-	// const nestestlistShow = () => {
-	// 	setNestListHow(!nestListShow);
-	// };
+
 	const nestestlistShow = useCallback(
 		() => {
 			setNestListHow(!nestListShow);

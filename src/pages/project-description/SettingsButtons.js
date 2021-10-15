@@ -12,61 +12,60 @@ const SettingsButtons = () => {
 		{
 			desciption: 'Rarity Score',
 			bgcolor: '#BE185D',
-			width: '100px',
+			width: '90px',
 			color: '#FFFFFF',
 			bgcolorHover: 'rgb(167 18 80)'
 		},
 		{
 			desciption: 'Trait Rarity',
 			bgcolor: darkMode ? '#6B7280' : 'transparent',
-			width: '100px',
+			width: '90ox',
 			color: darkMode ? '#FFFFFF' : '#BE185D',
 			bgcolorHover: darkMode ? '#6B7280' : 'rgb(241 239 240)'
 		},
 		{
-			desciption: 'Statistical Rarity',
+			desciption: 'Statistical ',
 			bgcolor: darkMode ? '#6B7280' : 'transparent',
-			width: '123px',
+			width: '90px',
 			color: darkMode ? '#FFFFFF' : '#BE185D',
 			bgcolorHover: darkMode ? '#6B7280' : 'rgb(241 239 240)'
 		},
 		{
-			desciption: 'Average Rarity',
+			desciption: 'Average ',
 			bgcolor: darkMode ? '#6B7280' : 'transparent',
-			width: '120px',
+			width: '90px',
 			color: darkMode ? '#FFFFFF' : '#BE185D',
 			bgcolorHover: darkMode ? '#6B7280' : 'rgb(241 239 240)'
 		}
 	];
 	return (
-		<div className="mb-4 mt-1">
-			<Grid container spacing={2}>
-				<Grid item lg={5}>
+		<div className="mt-2 mb-2">
+			<Grid container>
+				<Grid item lg={6}>
 					<span className={classes.descriptionWarning}>Method</span>
-					<div className="d-flex">
+					<div className="d-flex mt-2 mb-2">
 						{buttons &&
 							buttons.map((btns, idx) => {
 								return (
 									<div key={idx}>
 										<ButtonComponent
 											description={btns.desciption}
-											padding="2px 2px"
+											padding="0px 2px"
+											// width={btns.width}
+											width="90px"
 											margin="0px 7px"
 											color={btns.color}
-											width={btns.width}
 											border="1px solid #BE185D "
 											borderRadius="7px"
 											bgColor={btns.bgcolor}
 											bgcolorHover={btns.bgcolorHover}
-
-											// rgb(167 18 80)
 										/>
 									</div>
 								);
 							})}
 					</div>
 				</Grid>
-				<Grid item lg={5}>
+				<Grid item lg={3}>
 					<span className={classes.descriptionWarning}>Trait Normalization</span>
 					<div className="d-flex">
 						<ButtonComponent
@@ -95,13 +94,12 @@ const SettingsButtons = () => {
 						</div>
 					</div>
 				</Grid>
-				<Grid item lg={5}>
+				<Grid item lg={3}>
 					<span className={classes.descriptionWarning}>Additional Weighting</span>
 					<div className="d-flex">
 						<ButtonComponent
 							description="ON"
 							padding="0px 6px"
-							width="40px"
 							borderRadius="6px"
 							color="#FFFFFF"
 							bgColor="#BE185D"
@@ -113,7 +111,6 @@ const SettingsButtons = () => {
 							<ButtonComponent
 								description="OFF"
 								padding="0px 6px"
-								width="40px"
 								borderRadius="6px"
 								color={darkMode ? '#FFFFFF' : '#BE185D'}
 								bgColor={darkMode ? '#6B7280' : 'transparent'}

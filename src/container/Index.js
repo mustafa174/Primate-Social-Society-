@@ -12,6 +12,7 @@ const Container = () => {
 		<div>
 			<TopBar />
 			<br />
+
 			<Grid container direction="row" justifyContent="center">
 				<Grid item xs={8} sm={4} md={4} lg={2} xl={2}>
 					<Sidebar darkTheme={darkMode} />

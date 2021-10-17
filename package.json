@@ -2,6 +2,7 @@
   "name": "primate-social-society",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://myname.github.io/myapp",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@react-hook/window-size": "^3.0.7",
